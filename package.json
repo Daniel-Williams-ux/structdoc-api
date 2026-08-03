@@ -1,0 +1,27 @@
+{
+  "name": "structdoc-api",
+  "version": "0.1.0",
+  "description": "Structured document extraction validation API — JSON Schema contracts for identity documents",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "validate:samples": "tsx src/scripts/validate-samples.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "json-schema",
+    "document-extraction",
+    "validation"
+  ],
+  "license": "UNLICENSED",
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}
