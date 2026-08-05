@@ -19,11 +19,9 @@ Use this template per field:
 
 ## Passport
 
-_Add fields after you design `passport.schema.json`._
-
 | Field | Type | Required | Validation | Example | Business Reason |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| `documentType` | string | Yes | Must be an exact string constant (`passport`, `driving_licence`, `utility_bill`). | `"passport"` | Used by the system router to identify the document type and apply the correct sub-validation rules. |
+| `documentType` | string | Yes | Must be exactly `"passport"`. | `"passport"` | Routes the payload to passport validation rules in the identity router. |
 
 | `fullName` | string | Yes | Non-empty string (minimum 1 character). | `"Daniel Williams"` | Used to identify the employee and match it against the HR onboarding records. |
 
@@ -36,11 +34,9 @@ _Add fields after you design `passport.schema.json`._
 
 ## Driving licence
 
-_Add fields after you design `driving-licence.schema.json`._
-
 | Field | Type | Required | Validation | Example | Business Reason |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| `documentType` | string | Yes | Must be an exact string constant (`passport`, `drivingLicence`, `utility_bill`). | `"drivingLicence"` | Used by the system router to identify the document type and apply the correct sub-validation rules. |
+| `documentType` | string | Yes | Must be exactly `"drivingLicence"`. | `"drivingLicence"` | Routes the payload to driving licence validation rules in the identity router. |
 
 | `fullName` | string | Yes | Non-empty string (minimum 1 character). | `"Daniel Williams"` | Used to identify the employee and match it against the HR onboarding records. |
 
@@ -48,18 +44,11 @@ _Add fields after you design `driving-licence.schema.json`._
 
 | `confidenceScore` | number | Yes | Minimum: `0`, Maximum: `1`. | `0.91` | Indicates the machine learning model's statistical confidence in the accuracy of the extracted data. |
 
-| `contactInfo` | object | Yes | Object containing address and postcode properties; additional properties are forbidden. | `{"address": "123 Main St", "postcode": "1001"}` | The address and postcode used to contact the employees |
-
-| `expiryDate` | string \| null | No | Must be an ISO-8601 date or null. | `"2031-10-15"` | Needed to verify that identity documents are currently valid. Nullable to prevent engine crashes on blurry uploads. |
-
-
-## Utility bill
-
-_Add fields after you design `utility-bill.schema.json`._
+| `contactInfo` | object | Yes | Object containing address and postcode properties; additional properties are forbidden. | `{"address": "123 Main St", "postcode": "1001"}` | Address on the licence for identity and residency verification. |
 
 | Field | Type | Required | Validation | Example | Business Reason |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| `documentType` | string | Yes | Must be an exact string constant (`passport`, `driving_licence`, `utility_bill`). | `"utility_bill"` | Used by the system router to identify the document type and apply the correct sub-validation rules. |
+| `documentType` | string | Yes | Must be exactly `"utility_bill"`. | `"utility_bill"` | Routes the payload to utility bill validation rules in the identity router. |
 
 | `fullName` | string | Yes | Non-empty string (minimum 1 character). | `"Daniel Williams"` | Used to identify the employee and match it against the HR onboarding records. |
 
@@ -67,7 +56,7 @@ _Add fields after you design `utility-bill.schema.json`._
 
 | `confidenceScore` | number | Yes | Minimum: `0`, Maximum: `1`. | `0.91` | Indicates the machine learning model's statistical confidence in the accuracy of the extracted data. |
 
-| `contactInfo` | object | Yes | Object containing address and postcode properties; additional properties are forbidden. | `{"address": "123 Main St", "postcode": "1001"}` | The address and postcode used to contact the employees |
+| `contactInfo` | object | Yes | Object containing address and postcode properties; additional properties are forbidden. | `{"address": "123 Main St", "postcode": "1001"}` | Address on the bill for identity and residency verification. |
 
 | `expiryDate` | string \| null | No | Must be an ISO-8601 date or null. | `"2031-10-15"` | Needed to verify that identity documents are currently valid. Nullable to prevent engine crashes on blurry uploads. |
 
