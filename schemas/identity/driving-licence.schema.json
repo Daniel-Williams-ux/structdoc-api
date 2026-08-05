@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://structdoc.dev/schemas/identity/driving-licence.schema.json",
+  "title": "driving licence",
+  "description": "An identity document",
+  "type": "object",
+  "required": [
+    "documentType",
+    "fullName",
+    "documentNumber",
+    "confidenceScore",
+    "contact_info"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "documentType": { "type": "string", "const": "driving licence" },
+    "fullName": { "type": "string", "minLength": 1 },
+    "documentNumber": { "type": "string", "minLength": 1 },
+    "confidenceScore": { "type": "number", "minimum": 0, "maximum": 1 },
+    "contact_info": {
+      "type": "object",
+      "required": ["address", "postcode"],
+      "additionalProperties": false,
+      "properties": {
+        "address": { "type": "string", "minLength": 1 },
+        "postcode": { "type": "string", "minLength": 1 }
+      }
+    },
+    "expiryDate": {
+      "type": ["string", "null"],
+      "format": "date"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://structdoc.dev/schemas/identity/identity-document.schema.json",
+  "title": "Identity Document Router",
+  "description": "Validates that an incoming extraction matches exactly one known document type",
+  "oneOf": [
+    { "$ref": "https://structdoc.dev/schemas/identity/passport.schema.json" },
+    { "$ref": "https://structdoc.dev/schemas/identity/driving-licence.schema.json" },
+    { "$ref": "https://structdoc.dev/schemas/identity/utility-bill.schema.json" }
+  ]
+}
