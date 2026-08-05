@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://structdoc.dev/schemas/identity/passport.schema.json",
+  "title": "Passport",
+  "description": "An identity document",
+  "type": "object",
+  "required": ["documentType", "fullName", "documentNumber", "confidenceScore"],
+  "additionalProperties": false,
+  "properties": {
+    "documentType": { "type": "string", "const": "passport" },
+    "fullName": { "type": "string", "minLength": 1 },
+    "documentNumber": { "type": "string", "minLength": 1 },
+    "confidenceScore": { "type": "number", "minimum": 0, "maximum": 1 },
+    "expiryDate": {
+      "type": ["string", "null"],
+      "format": "date"
+    }
+  }
+}

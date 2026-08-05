@@ -1,0 +1,17 @@
+{
+  "documentType": "utility_bill",
+  "fullName": "Daniel Williams",
+  "documentNumber": "A1234567",
+  "confidenceScore": 0.8,
+  "contactInfo": {
+    "address": "23 Ikoyi, Lagos",
+    "postcode": "1001"
+  },
+  "lineItems": [
+    {
+      "description": "Gas usage",
+      "amount": 40.0
+    }
+  ],
+  "expiryDate": "2031-10-15"
+}

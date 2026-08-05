@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://structdoc.dev/schemas/identity/utility-bill.schema.json",
+  "title": "Utility Bill",
+  "description": "An identity verification document",
+  "type": "object",
+  "required": [
+    "documentType",
+    "fullName",
+    "documentNumber",
+    "confidenceScore",
+    "contactInfo",
+    "lineItems"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "documentType": { "type": "string", "const": "utility_bill" },
+    "fullName": { "type": "string", "minLength": 1 },
+    "documentNumber": { "type": "string", "minLength": 1 },
+    "confidenceScore": { "type": "number", "minimum": 0, "maximum": 1 },
+    "contactInfo": {
+      "type": "object",
+      "required": ["address", "postcode"],
+      "additionalProperties": false,
+      "properties": {
+        "address": { "type": "string", "minLength": 1 },
+        "postcode": { "type": "string", "minLength": 1 }
+      }
+    },
+    "lineItems": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["description", "amount"],
+        "additionalProperties": false,
+        "properties": {
+          "description": { "type": "string", "minLength": 1 },
+          "amount": { "type": "number", "minimum": 0 }
+        }
+      }
+    },
+    "expiryDate": {
+      "type": ["string", "null"],
+      "format": "date"
+    }
+  }
+}

@@ -14,6 +14,17 @@ Validate structured extraction output against identity document schemas.
 }
 ```
 
+### Request Payload Fields
+
+| Property | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `payload` | object | Yes | The root wrapper object containing the raw data extracted from the document. |
+| `payload.documentType` | string | Yes | Must match exactly one constant: `passport`, `driving_licence`, or `utility_bill`. |
+| `payload.fullName` | string | Yes | Non-empty string containing the full name of the employee. |
+| `payload.documentNumber` | string | Yes | Unique ID string extracted from the document. |
+| `payload.confidenceScore` | number | Yes | Float value between 0 and 1 indicating OCR accuracy confidence. |
+
+
 ### Success — 200
 
 ```json
