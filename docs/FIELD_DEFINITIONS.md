@@ -23,7 +23,7 @@ _Add fields after you design `passport.schema.json`._
 
 | Field | Type | Required | Validation | Example | Business Reason |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| `documentType` | string | Yes | Must be a exact string constant (`passport`, `driving_licence`, `utility_bill`). | `"passport"` | Used by the system router to identify the document type and apply the correct sub-validation rules. |
+| `documentType` | string | Yes | Must be an exact string constant (`passport`, `driving_licence`, `utility_bill`). | `"passport"` | Used by the system router to identify the document type and apply the correct sub-validation rules. |
 
 | `fullName` | string | Yes | Non-empty string (minimum 1 character). | `"Daniel Williams"` | Used to identify the employee and match it against the HR onboarding records. |
 
@@ -40,7 +40,7 @@ _Add fields after you design `driving-licence.schema.json`._
 
 | Field | Type | Required | Validation | Example | Business Reason |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| `documentType` | string | Yes | Must be a exact string constant (`passport`, `driving_licence`, `utility_bill`). | `"driving_licence"` | Used by the system router to identify the document type and apply the correct sub-validation rules. |
+| `documentType` | string | Yes | Must be an exact string constant (`passport`, `drivingLicence`, `utility_bill`). | `"drivingLicence"` | Used by the system router to identify the document type and apply the correct sub-validation rules. |
 
 | `fullName` | string | Yes | Non-empty string (minimum 1 character). | `"Daniel Williams"` | Used to identify the employee and match it against the HR onboarding records. |
 
@@ -48,7 +48,7 @@ _Add fields after you design `driving-licence.schema.json`._
 
 | `confidenceScore` | number | Yes | Minimum: `0`, Maximum: `1`. | `0.91` | Indicates the machine learning model's statistical confidence in the accuracy of the extracted data. |
 
-| `contact_info` | object | Yes | Object containing address and postcode properties; additional properties are forbidden. | `{"address": "123 Main St", "postcode": "1001"}` | The address and postcode used to contact the employees |
+| `contactInfo` | object | Yes | Object containing address and postcode properties; additional properties are forbidden. | `{"address": "123 Main St", "postcode": "1001"}` | The address and postcode used to contact the employees |
 
 | `expiryDate` | string \| null | No | Must be an ISO-8601 date or null. | `"2031-10-15"` | Needed to verify that identity documents are currently valid. Nullable to prevent engine crashes on blurry uploads. |
 
@@ -59,7 +59,7 @@ _Add fields after you design `utility-bill.schema.json`._
 
 | Field | Type | Required | Validation | Example | Business Reason |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| `documentType` | string | Yes | Must be a exact string constant (`passport`, `driving_licence`, `utility_bill`). | `"utility_bill"` | Used by the system router to identify the document type and apply the correct sub-validation rules. |
+| `documentType` | string | Yes | Must be an exact string constant (`passport`, `driving_licence`, `utility_bill`). | `"utility_bill"` | Used by the system router to identify the document type and apply the correct sub-validation rules. |
 
 | `fullName` | string | Yes | Non-empty string (minimum 1 character). | `"Daniel Williams"` | Used to identify the employee and match it against the HR onboarding records. |
 
@@ -67,8 +67,8 @@ _Add fields after you design `utility-bill.schema.json`._
 
 | `confidenceScore` | number | Yes | Minimum: `0`, Maximum: `1`. | `0.91` | Indicates the machine learning model's statistical confidence in the accuracy of the extracted data. |
 
-| `contact_info` | object | Yes | Object containing address and postcode properties; additional properties are forbidden. | `{"address": "123 Main St", "postcode": "1001"}` | The address and postcode used to contact the employees |
+| `contactInfo` | object | Yes | Object containing address and postcode properties; additional properties are forbidden. | `{"address": "123 Main St", "postcode": "1001"}` | The address and postcode used to contact the employees |
 
 | `expiryDate` | string \| null | No | Must be an ISO-8601 date or null. | `"2031-10-15"` | Needed to verify that identity documents are currently valid. Nullable to prevent engine crashes on blurry uploads. |
 
-| `lineItems` | array | Yes | Non-empty array (minimum item of 1). | `[{"description": "Gas Usage", "amount": 40.0}]` | Shows reprated key business items |
+| `lineItems` | array | Yes | Non-empty array (minimum item of 1). | `[{"description": "Gas Usage", "amount": 40.0}]` | Shows repeated key business items |

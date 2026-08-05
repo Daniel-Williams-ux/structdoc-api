@@ -1,0 +1,11 @@
+{
+    "documentType": "driving licence",
+    "fullName": "Daniel Williams",
+    "documentNumber": "A50123K",
+    "confidenceScore": 0.9,
+    "contactInfo": {
+        "address": "104, Awolowo Road, Ikoyi, Lagos",
+        "postcode": "1004"
+    },
+    "expiryDate": "2039-05-18"
+}

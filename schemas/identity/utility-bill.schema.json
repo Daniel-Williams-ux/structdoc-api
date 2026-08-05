@@ -9,6 +9,7 @@
     "fullName",
     "documentNumber",
     "confidenceScore",
+    "contactIinfo",
     "lineItems"
   ],
   "additionalProperties": false,
@@ -17,7 +18,7 @@
     "fullName": { "type": "string", "minLength": 1 },
     "documentNumber": { "type": "string", "minLength": 1 },
     "confidenceScore": { "type": "number", "minimum": 0, "maximum": 1 },
-    "contact_info": {
+    "contactIinfo": {
       "type": "object",
       "required": ["address", "postcode"],
       "additionalProperties": false,
