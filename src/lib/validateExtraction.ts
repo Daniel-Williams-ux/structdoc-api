@@ -1,24 +1,17 @@
 /**
  * DOC-101: Identity document extraction validation (AJV).
  */
-import Ajv2020Module from "ajv/dist/2020.js";
-import addFormatsModule from "ajv-formats";
+import { Ajv2020 } from "ajv/dist/2020.js";
+import addFormats from "ajv-formats";
 import type { ErrorObject, ValidateFunction } from "ajv";
 import identityRouterSchema from "../../schemas/identity/identity-document.schema.json" with { type: "json" };
 import passportSchema from "../../schemas/identity/passport.schema.json" with { type: "json" };
 import drivingLicenceSchema from "../../schemas/identity/driving-licence.schema.json" with { type: "json" };
 import utilityBillSchema from "../../schemas/identity/utility-bill.schema.json" with { type: "json" };
 
-const Ajv2020 = Ajv2020Module as unknown as new (options?: object) => {
-  addSchema: (schema: object) => void;
-  compile: (schema: object) => (data: unknown) => boolean;
-  errors?: ErrorObject[] | null;
-};
-
-const addFormats = addFormatsModule as unknown as (ajv: InstanceType<typeof Ajv2020>) => void;
-
 const ajv = new Ajv2020({ allErrors: true, strict: false });
 
+// @ts-expect-error ajv-formats default export is the plugin function (NodeNext ESM typing)
 addFormats(ajv);
 
 // Register document schemas once (by $id). Do not re-add when compiling the router.
